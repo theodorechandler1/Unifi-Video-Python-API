@@ -89,7 +89,7 @@ class UnifiVideoServerComm:
             responseJSON = json.loads(r.content)['data']
             responseJSON = responseJSON[0] #Only one element in the list. Select it.
             responseJSON = responseJSON['cameras'][0] #Get the cameras list and select element 0 (for some reason unifi believes multiple cameras can record to a single recording)
-            return server.getCameraName(responseJSON) #Lookup the cameraName using the camera _id
+            return self.getCameraName(responseJSON) #Lookup the cameraName using the camera _id
         else:
             return None
     
